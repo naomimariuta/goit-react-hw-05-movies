@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = 'b4a37daab61b0e2cbc84b0608fc0fe04';
+const API_KEY = '62fd1f6f75634c3e4cf1834399c4aa19';
 
 const parameters = {
   position: 'center-center',
