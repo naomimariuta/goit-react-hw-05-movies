@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useLocation, Link, NavLink } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { getMovieInfo } from 'services/movieService';
 import Cast from 'pages/Cast/Cast';
