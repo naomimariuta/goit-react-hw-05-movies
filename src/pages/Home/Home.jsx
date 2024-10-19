@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPopularFilms } from 'services/movieService';
 import Loader from 'components/Loader/Loader';
 import styles from './Home.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -33,13 +34,13 @@ const Home = () => {
       <div className={styles.movieList}>
         {movies.map(movie => (
           <div key={movie.id} className={styles.movieCard}>
-            <a href={`/movies/${movie.id}`}>
+            <NavLink to={`/movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt={movie.title}
                 className={styles.moviePoster}
               />
-            </a>
+            </NavLink>
             <h3>{movie.title}</h3>
           </div>
         ))}
