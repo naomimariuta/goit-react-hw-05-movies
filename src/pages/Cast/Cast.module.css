@@ -1,0 +1,29 @@
+.castContainer {
+  padding: 20px;
+}
+
+.actorImage {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style-type: none;
+}
+
+.castList li {
+  margin: 15px;
+  text-align: center;
+}
+
+.castList h2 {
+  margin-bottom: 15px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

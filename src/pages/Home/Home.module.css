@@ -1,0 +1,26 @@
+.homeContainer {
+  padding: 20px;
+}
+
+.movieCard {
+  display: inline-block;
+  margin: 15px;
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.moviePoster {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
