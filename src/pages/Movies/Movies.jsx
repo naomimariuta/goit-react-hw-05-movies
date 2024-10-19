@@ -4,9 +4,9 @@ import Loader from 'components/Loader/Loader';
 import styles from './Movies.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Movies = () => {
+const Movies = ({ movies, setMovies }) => {
   const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -56,7 +56,11 @@ const Movies = () => {
           <div key={movie.id} className={styles.movieCard}>
             <NavLink to={`/movies/${movie.id}`}>
               <img
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                    : '/placeholder-image.png'
+                }
                 alt={movie.title}
                 className={styles.moviePoster}
               />
