@@ -34,7 +34,7 @@ const Home = () => {
       <div className={styles.movieList}>
         {movies.map(movie => (
           <div key={movie.id} className={styles.movieCard}>
-            <NavLink to={`/movies/${movie.id}`}>
+            <NavLink to={`movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt={movie.title}
