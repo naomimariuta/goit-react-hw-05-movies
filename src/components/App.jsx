@@ -1,11 +1,5 @@
 import React, { Suspense, lazy, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  NavLink,
-  Navigate,
-} from 'react-router-dom';
+import { Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import Loader from './Loader/Loader';
 import styles from './App.module.css';
 import Scroll from './Scroll/Scroll';
@@ -20,7 +14,7 @@ const App = () => {
   const [movies, setMovies] = useState([]);
 
   return (
-    <Router>
+    <>
       <div className={styles.App}>
         <nav className={styles.navbar}>
           <NavLink
@@ -57,7 +51,7 @@ const App = () => {
         </Suspense>
       </div>
       <Scroll />
-    </Router>
+    </>
   );
 };
 
