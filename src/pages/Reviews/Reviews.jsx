@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/movieService';
 import Loader from 'components/Loader/Loader';
 import styles from './Reviews.module.css';
 
-const Reviews = ({ movieId }) => {
+const Reviews = () => {
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

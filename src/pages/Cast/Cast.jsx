@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import styles from './Cast.module.css';
 import { getMovieCast } from 'services/movieService';
 
-const Cast = ({ movieId }) => {
+const Cast = () => {
+  const { movieId } = useParams();
   const [cast, setCast] = useState([]); // Default to an empty array
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,7 +16,7 @@ const Cast = ({ movieId }) => {
       setError(null);
       try {
         const data = await getMovieCast(movieId);
-
+        console.log(data);
         // Check if data and data.cast are defined and is an array
         if (data && Array.isArray(data.cast)) {
           setCast(data.cast);

@@ -71,7 +71,6 @@ const MovieDetails = () => {
         </Link>
       </nav>
 
-      {/* This is where nested routes like /movies/:movieId/cast and /movies/:movieId/reviews will render */}
       <Outlet />
     </div>
   );
