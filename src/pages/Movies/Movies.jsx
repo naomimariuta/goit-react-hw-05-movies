@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getMovieByKeyword } from 'services/movieService';
 import Loader from 'components/Loader/Loader';
 import styles from './Movies.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -53,13 +54,13 @@ const Movies = () => {
       <div className={styles.movieList}>
         {movies.map(movie => (
           <div key={movie.id} className={styles.movieCard}>
-            <a href={`/movies/${movie.id}`}>
+            <NavLink to={`/movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt={movie.title}
                 className={styles.moviePoster}
               />
-            </a>
+            </NavLink>
             <h3>{movie.title}</h3>
           </div>
         ))}

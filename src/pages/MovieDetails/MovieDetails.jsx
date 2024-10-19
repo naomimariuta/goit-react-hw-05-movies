@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link, NavLink } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { getMovieInfo } from 'services/movieService';
 import Cast from 'pages/Cast/Cast';
@@ -25,13 +25,14 @@ const MovieDetails = () => {
       try {
         const data = await getMovieInfo(movieId);
         setMovie(data);
+        console.log(data);
       } catch (err) {
         setError('Failed to fetch movie details. Please try again later.');
       } finally {
         setLoading(false);
       }
     };
-
+    console.log(movieId);
     fetchMovieDetails();
   }, [movieId]);
 
@@ -75,8 +76,9 @@ const MovieDetails = () => {
       />
       <p>{movie.overview}</p>
 
-      <div className={styles.detailsContainer}>
-        <button
+      <nav className={styles.detailsContainer}>
+        <Link
+          to="cast"
           className={styles.link}
           onClick={() => {
             setActiveSection('cast');
@@ -84,8 +86,9 @@ const MovieDetails = () => {
           }}
         >
           Cast
-        </button>
-        <button
+        </Link>
+        <Link
+          to="reviews"
           className={styles.link}
           onClick={() => {
             setActiveSection('reviews');
@@ -93,8 +96,8 @@ const MovieDetails = () => {
           }}
         >
           Reviews
-        </button>
-      </div>
+        </Link>
+      </nav>
 
       <div ref={castRef}>
         {activeSection === 'cast' && <Cast movieId={movieId} />}
